@@ -12,13 +12,13 @@
   <meta name="msapplication-navbutton-color" content="#101d30">
   
   <!-- SEO & Social Media Open Graph (WhatsApp Preview) -->
-  <title>The Wedding of Teguh & Sefi</title>
-  <meta name="title" content="The Wedding of Teguh & Sefi">
-  <meta name="description" content="Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami.">
+  <title id="metaPageTitle">The Wedding of Teguh & Sefi</title>
+  <meta id="metaTitle" name="title" content="The Wedding of Teguh & Sefi">
+  <meta id="metaDescription" name="description" content="Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="The Wedding of Teguh & Sefi">
-  <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80">
+  <meta id="metaOgTitle" property="og:title" content="The Wedding of Teguh & Sefi">
+  <meta id="metaOgDescription" property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami.">
+  <meta id="metaOgImage" property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80">
   
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
@@ -32,6 +32,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    /* =========================================================================
+     * KONFIGURASI LINK GAS UTAMA & INSTANT CACHE (0MS PRELOADER/COVER DELAY)
+     * ========================================================================= */
+    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbyrXil5ZrzCAI1Lec58FTDF85I8I-ELwUrE09xjiBut6PMKK5yO5RozqSIzZGOdVjXF/exec";
+    
+    // Load cached settings instantly before DOM renders to eliminate preloader/cover delay
+    try {
+      var cachedSettingsRaw = localStorage.getItem('zett_wedding_settings');
+      if (cachedSettingsRaw) {
+        window.INITIAL_SETTINGS = JSON.parse(cachedSettingsRaw);
+      }
+    } catch (e) {}
+  </script>
   
   <style>
     :root {
@@ -1445,6 +1460,21 @@
       font-size: 0.95rem;
     }
   </style>
+
+  <script>
+    // Apply cached settings immediately upon head parsing to eliminate cover/preloader flash
+    if (window.INITIAL_SETTINGS) {
+      try {
+        var s = window.INITIAL_SETTINGS;
+        var p = s.nama_pria || 'Teguh';
+        var w = s.nama_wanita || 'Sefi';
+        var couple = p + ' & ' + w;
+        document.addEventListener('DOMContentLoaded', function() {
+          applySettingsToDOM(s);
+        });
+      } catch (e) {}
+    }
+  </script>
 </head>
 <body>
 
@@ -2112,12 +2142,6 @@
   </div>
 
   <script>
-    /* =========================================================================
-     * KONFIGURASI LINK GAS UTAMA (GANTI DI SINI SAJA JIKA GANTI DEPLOYMENT)
-     * ========================================================================= */
-    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbyrXil5ZrzCAI1Lec58FTDF85I8I-ELwUrE09xjiBut6PMKK5yO5RozqSIzZGOdVjXF/exec";
-    /* ========================================================================= */
-
     var isMusicPlaying = false;
     var isInvitationOpened = false;
     var countdownTarget = new Date(2026, 8, 26, 14, 0, 0).getTime();
@@ -2125,7 +2149,8 @@
     var rsvpOffset = 0;
     var rsvpLimit = 50;
 
-    var cachedSettings = {
+    // Fallback default settings if cache is empty
+    var cachedSettings = window.INITIAL_SETTINGS || {
       judul_acara: 'The Wedding of Teguh & Sefi',
       nama_pria: 'Teguh',
       nama_lengkap_pria: 'Teguh Rahadi, S.Pd',
@@ -2162,8 +2187,7 @@
     };
 
     var localMockWishes = [
-      { id: 'RSVP-0001', timestamp: '28/08/2026 10:15:00', nama: 'Budi Santoso & Keluarga', konfirmasi: 'Hadir', jumlah: '2 Orang', ucapan: 'Selamat menempuh hidup baru untuk Teguh dan Sefi! Semoga senantiasa menjadi keluarga yang sakinah, mawaddah, warahmah.' },
-      { id: 'RSVP-0002', timestamp: '28/08/2026 11:30:22', nama: 'Rian & Sarah', konfirmasi: 'Tidak Hadir', jumlah: '-', ucapan: 'Mohon maaf belum bisa hadir secara langsung, semoga acara berjalan lancar dan penuh berkah ya!' }
+      { id: 'RSVP-0001', timestamp: '28/08/2026 10:15:00', nama: 'Budi Santoso & Keluarga', konfirmasi: 'Hadir', jumlah: '2 Orang', ucapan: 'Selamat menempuh hidup baru untuk mempelai! Semoga senantiasa menjadi keluarga yang sakinah, mawaddah, warahmah.' }
     ];
 
     var localMockGuests = [
@@ -2181,10 +2205,10 @@
     }
 
     window.addEventListener('load', function() {
-      setTimeout(dismissAppLoader, 450);
+      setTimeout(dismissAppLoader, 400);
     });
 
-    setTimeout(dismissAppLoader, 1800);
+    setTimeout(dismissAppLoader, 1500);
 
     function getCleanPublicBaseUrl() {
       try {
@@ -2417,11 +2441,13 @@
           audioElem.load();
         }
 
+        // Apply cached settings immediately on DOM load
         applySettingsToDOM(cachedSettings);
         parseURLParameters();
         initCountdownEngine();
         initLuxuryScrollObserver();
         
+        // Fetch fresh settings in background
         fetchWeddingSettings();
         loadInitialRSVP();
 
@@ -2558,21 +2584,15 @@
     }
 
     function fetchWeddingSettings() {
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(data) {
-            if (data && typeof data === 'object') {
-              cachedSettings = Object.assign({}, cachedSettings, data);
-              applySettingsToDOM(cachedSettings);
-            }
-          })
-          .getWeddingSettings();
-      } else if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
+      if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
         fetch(GAS_API_URL + (GAS_API_URL.indexOf('?') > -1 ? '&' : '?') + 'action=getSettings')
           .then(function(res) { return res.json(); })
           .then(function(res) {
             if (res && res.success && res.settings) {
               cachedSettings = Object.assign({}, cachedSettings, res.settings);
+              try {
+                localStorage.setItem('zett_wedding_settings', JSON.stringify(cachedSettings));
+              } catch(e) {}
               applySettingsToDOM(cachedSettings);
             }
           })
@@ -2587,8 +2607,25 @@
         var namaPria = s.nama_pria || 'Teguh';
         var namaWanita = s.nama_wanita || 'Sefi';
         var coupleText = namaPria + ' & ' + namaWanita;
+        var pageTitleText = s.judul_acara || ('The Wedding of ' + coupleText);
 
-        document.title = s.judul_acara || ('The Wedding of ' + coupleText);
+        document.title = pageTitleText;
+        var metaTitle = document.getElementById('metaTitle');
+        if (metaTitle) metaTitle.content = pageTitleText;
+        var metaOgTitle = document.getElementById('metaOgTitle');
+        if (metaOgTitle) metaOgTitle.content = pageTitleText;
+
+        var descText = s.teks_penutup || 'Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir dan memberikan doa restu pada hari bahagia pernikahan kami.';
+        var metaDesc = document.getElementById('metaDescription');
+        if (metaDesc) metaDesc.content = descText;
+        var metaOgDesc = document.getElementById('metaOgDescription');
+        if (metaOgDesc) metaOgDesc.content = descText;
+
+        var directCoverUrl = s.foto_cover_direct || formatDriveImageUrl(s.foto_cover, 'w1000');
+        if (directCoverUrl) {
+          var metaOgImg = document.getElementById('metaOgImage');
+          if (metaOgImg) metaOgImg.content = directCoverUrl;
+        }
         
         var loaderInitialPria = document.getElementById('loaderInitialPria');
         if (loaderInitialPria) loaderInitialPria.textContent = String(namaPria).trim().charAt(0).toUpperCase();
@@ -2616,7 +2653,6 @@
         var headerDate = document.getElementById('headerDate');
         if (headerDate) headerDate.textContent = headerDateStr;
 
-        var directCoverUrl = s.foto_cover_direct || formatDriveImageUrl(s.foto_cover, 'w1000');
         if (directCoverUrl) {
           var coverHero = document.getElementById('coverHeroPhoto');
           if (coverHero && coverHero.src !== directCoverUrl) coverHero.src = directCoverUrl;
@@ -2996,16 +3032,7 @@
 
     function loadInitialRSVP() {
       rsvpOffset = 0;
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(response) {
-            renderRSVPResponse(response, true);
-          })
-          .withFailureHandler(function() {
-            renderLocalMockWishes();
-          })
-          .getRSVPList(rsvpLimit, rsvpOffset);
-      } else if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
+      if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
         fetch(GAS_API_URL + (GAS_API_URL.indexOf('?') > -1 ? '&' : '?') + 'action=getRSVPList&limit=' + rsvpLimit + '&offset=' + rsvpOffset)
           .then(function(res) { return res.json(); })
           .then(function(res) {
@@ -3151,18 +3178,7 @@
         ucapan: ucapanVal
       };
 
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(res) {
-            btnSubmit.disabled = false;
-            btnSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kirim Konfirmasi';
-          })
-          .withFailureHandler(function(err) {
-            btnSubmit.disabled = false;
-            btnSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kirim Konfirmasi';
-          })
-          .submitRSVP(payload);
-      } else if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
+      if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
         fetch(GAS_API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -3220,26 +3236,7 @@
       btn.disabled = true;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Memverifikasi...';
 
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(res) {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-key"></i> Buka Panel';
-            if (res && res.success) {
-              closeAdminAuthModal();
-              openAdminDashboardModal();
-              showToast('Login Admin Berhasil!');
-            } else {
-              showToast(res.message || 'PIN Admin Salah!');
-            }
-          })
-          .withFailureHandler(function(err) {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-key"></i> Buka Panel';
-            showToast('Gagal memverifikasi PIN.');
-          })
-          .verifyAdminPIN(pinVal);
-      } else if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
+      if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
         fetch(GAS_API_URL + (GAS_API_URL.indexOf('?') > -1 ? '&' : '?') + 'action=verifyAdminPIN&pin=' + encodeURIComponent(pinVal))
           .then(function(res) { return res.json(); })
           .then(function(res) {
@@ -3321,47 +3318,6 @@
       }
     }
 
-    function buildClientWAMessage(namaVal, linkVal, agamaVal) {
-      var coupleText = (cachedSettings.nama_pria || 'Teguh') + ' & ' + (cachedSettings.nama_wanita || 'Sefi');
-      var tglAcara = formatDateToIndoFull(cachedSettings.tanggal_akad || 'Sabtu, 26 September 2026');
-      var jamAcara = cachedSettings.jam_akad || '14:00 - 15:00 WIB';
-      var lokasiAcara = cachedSettings.lokasi_akad || 'The Grand Manor Estate';
-      var cleanAgama = (agamaVal || 'Islam').toLowerCase();
-
-      if (cleanAgama.indexOf('islam') > -1) {
-        return '🌿 *UNDANGAN PERNIKAHAN DIGITAL* 🌿\n\n' +
-          '_Assalamu’alaikum Warahmatullahi Wabarakatuh_\n\n' +
-          'Kepada Yth. Bapak/Ibu/Saudara/i:\n' +
-          '✨ *' + namaVal + '* ✨\n\n' +
-          'Dengan memohon rahmat dan ridho Allah SWT, perkenankan kami mengundang Anda untuk hadir pada hari bahagia pernikahan kami:\n\n' +
-          '💍 *' + coupleText + '* 💍\n\n' +
-          '📅 *Waktu & Tempat:*\n' +
-          '• Hari/Tanggal : ' + tglAcara + '\n' +
-          '• Waktu : ' + jamAcara + '\n' +
-          '• Tempat : ' + lokasiAcara + '\n\n' +
-          'Buka tautan undangan resmi untuk detail lengkap & konfirmasi kehadiran:\n' +
-          '👉 *' + linkVal + '*\n\n' +
-          'Merupakan suatu kehormatan apabila Anda berkenan hadir dan memberikan doa restu.\n\n' +
-          '_Wassalamu’alaikum Warahmatullahi Wabarakatuh_\n\n' +
-          '*' + coupleText + ' & Keluarga*';
-      }
-
-      return '✨ *UNDANGAN PERNIKAHAN RESMI* ✨\n\n' +
-        '_Salam Hangat & Damai Sejahtera_\n\n' +
-        'Kepada Yth. Bapak/Ibu/Saudara/i:\n' +
-        '✨ *' + namaVal + '* ✨\n\n' +
-        'Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir merayakan momen istimewa pernikahan kami:\n\n' +
-        '💍 *' + coupleText + '* 💍\n\n' +
-        '📅 *Waktu & Tempat:*\n' +
-        '• Hari/Tanggal : ' + tglAcara + '\n' +
-        '• Waktu : ' + jamAcara + '\n' +
-        '• Tempat : ' + lokasiAcara + '\n\n' +
-        'Buka tautan undangan resmi:\n' +
-        '👉 *' + linkVal + '*\n\n' +
-        'Terima kasih atas doa restu dan perhatian Anda.\n\n' +
-        '*' + coupleText + ' & Keluarga*';
-    }
-
     function handleGenerateWALink(e) {
       e.preventDefault();
       var namaVal = document.getElementById('adminInputNama').value.trim();
@@ -3387,28 +3343,7 @@
         webAppUrl: cleanBaseUrl
       };
 
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(res) {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Kirim ke WhatsApp';
-            if (res && res.success) {
-              displayGeneratedResult(res.guest.linkUndangan);
-              showToast('Link personal (' + agamaVal + ') berhasil dibuat!');
-              if (res.guest.linkWa) {
-                window.open(res.guest.linkWa, '_blank');
-              }
-            } else {
-              showToast(res.message || 'Gagal membuat link.');
-            }
-          })
-          .withFailureHandler(function(err) {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Kirim ke WhatsApp';
-            showToast('Gagal membuat link: ' + err.message);
-          })
-          .addGuestAndGenerateWALink(payload);
-      } else if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
+      if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
         fetch(GAS_API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -3431,36 +3366,12 @@
         .catch(function(err) {
           btn.disabled = false;
           btn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Kirim ke WhatsApp';
-          
-          var dummyLink = cleanBaseUrl + (cleanBaseUrl.indexOf('?') > -1 ? '&' : '?') + 'to=' + encodeURIComponent(namaVal);
-          displayGeneratedResult(dummyLink);
-          showToast('Link personal (' + agamaVal + ') dibuat!');
-          
-          var msg = buildClientWAMessage(namaVal, dummyLink, agamaVal);
-          if (waVal) {
-            var cleanWa = waVal.replace(/[^0-9]/g, '');
-            if (cleanWa.indexOf('08') === 0) cleanWa = '62' + cleanWa.slice(1);
-            window.open('https://wa.me/' + cleanWa + '?text=' + encodeURIComponent(msg), '_blank');
-          } else {
-            window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank');
-          }
+          showToast('Gagal terhubung ke server backend.');
         });
       } else {
         btn.disabled = false;
         btn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Kirim ke WhatsApp';
-        
-        var dummyLink = cleanBaseUrl + (cleanBaseUrl.indexOf('?') > -1 ? '&' : '?') + 'to=' + encodeURIComponent(namaVal);
-        displayGeneratedResult(dummyLink);
-        showToast('Link personal (' + agamaVal + ') dibuat!');
-        
-        var msg = buildClientWAMessage(namaVal, dummyLink, agamaVal);
-        if (waVal) {
-          var cleanWa = waVal.replace(/[^0-9]/g, '');
-          if (cleanWa.indexOf('08') === 0) cleanWa = '62' + cleanWa.slice(1);
-          window.open('https://wa.me/' + cleanWa + '?text=' + encodeURIComponent(msg), '_blank');
-        } else {
-          window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank');
-        }
+        showToast('URL GAS API belum dikonfigurasi.');
       }
     }
 
@@ -3503,16 +3414,7 @@
       var container = document.getElementById('adminGuestListContainer');
       container.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 0.82rem; padding: 20px;"><i class="fa-solid fa-spinner fa-spin"></i> Memuat data tamu...</p>';
       
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(res) {
-            renderAdminGuestTable(res.items || []);
-          })
-          .withFailureHandler(function() {
-            renderAdminGuestTable(localMockGuests);
-          })
-          .getAdminGuestList();
-      } else if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
+      if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
         fetch(GAS_API_URL + (GAS_API_URL.indexOf('?') > -1 ? '&' : '?') + 'action=getAdminGuests')
           .then(function(res) { return res.json(); })
           .then(function(res) {
@@ -3566,26 +3468,17 @@
       var container = document.getElementById('adminRSVPListContainer');
       container.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 0.82rem; padding: 20px;"><i class="fa-solid fa-spinner fa-spin"></i> Memuat konfirmasi...</p>';
       
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        google.script.run
-          .withSuccessHandler(function(res) {
-            renderAdminRSVPTable(res);
-          })
-          .withFailureHandler(function() {
-            renderAdminRSVPTable({ items: localMockWishes, totalHadir: 1, totalTidakHadir: 1, totalGuests: 2 });
-          })
-          .getAdminRSVPList();
-      } else if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
+      if (GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
         fetch(GAS_API_URL + (GAS_API_URL.indexOf('?') > -1 ? '&' : '?') + 'action=getAdminRSVP')
           .then(function(res) { return res.json(); })
           .then(function(res) {
             renderAdminRSVPTable(res);
           })
           .catch(function() {
-            renderAdminRSVPTable({ items: localMockWishes, totalHadir: 1, totalTidakHadir: 1, totalGuests: 2 });
+            renderAdminRSVPTable({ items: localMockWishes, totalHadir: 1, totalTidakHadir: 0, totalGuests: 1 });
           });
       } else {
-        renderAdminRSVPTable({ items: localMockWishes, totalHadir: 1, totalTidakHadir: 1, totalGuests: 2 });
+        renderAdminRSVPTable({ items: localMockWishes, totalHadir: 1, totalTidakHadir: 0, totalGuests: 1 });
       }
     }
 
