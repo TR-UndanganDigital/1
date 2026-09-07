@@ -21,7 +21,7 @@
      *    b. Salin ID file dari link Drive Anda, pasang ke format direct CDN Google:
      *       https://lh3.googleusercontent.com/d/ID_FILE_GOOGLE_DRIVE=w1200
      */
-    var DEFAULT_OG_IMAGE_URL = "https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200";
+    var DEFAULT_OG_IMAGE_URL = "https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200&q=80";
   </script>
 
   <!-- ==========================================================================
@@ -35,7 +35,7 @@
   <!-- Schema.org Microdata (Dibaca Google & WhatsApp Bot) -->
   <meta itemprop="name" content="The Wedding of Tono & Tini">
   <meta itemprop="description" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  <meta itemprop="image" id="dynItempropImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
+  <meta itemprop="image" id="dynItempropImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200&q=80">
 
   <!-- Open Graph Standard (WhatsApp, Telegram, Facebook) -->
   <meta property="og:type" content="website">
@@ -45,21 +45,21 @@
   <meta property="og:description" id="dynOgDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
   
   <!-- Tag Gambar WhatsApp: Wajib Full Absolute URL + Ukuran 1200x630 (Rasio 1.91:1) -->
-  <meta property="og:image" id="dynOgImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
-  <meta property="og:image:secure_url" id="dynOgImageSecure" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
+  <meta property="og:image" id="dynOgImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200&q=80">
+  <meta property="og:image:secure_url" id="dynOgImageSecure" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200&q=80">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Wedding Invitation Cover Photo">
 
   <!-- Fallback Link Thumbnail untuk Chat Apps Klasik -->
-  <link rel="image_src" id="dynLinkImageSrc" href="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
+  <link rel="image_src" id="dynLinkImageSrc" href="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200&q=80">
 
   <!-- Twitter Card Preview -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" id="dynTwTitle" content="The Wedding of Tono & Tini">
   <meta name="twitter:description" id="dynTwDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  <meta name="twitter:image" id="dynTwImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
+  <meta name="twitter:image" id="dynTwImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200&q=80">
 
   <!-- Mobile & PWA Capabilities -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -94,9 +94,9 @@
       --text-main: #2b394a;
       --text-muted: #6b7c96;
       --border-soft: #e7dfd5;
-      --shadow-sm: 0 4px 12px rgba(25, 42, 69, 0.05);
-      --shadow-md: 0 8px 24px rgba(25, 42, 69, 0.08);
-      --shadow-lg: 0 16px 36px rgba(25, 42, 69, 0.12);
+      --shadow-sm: 0 3px 10px rgba(25, 42, 69, 0.05);
+      --shadow-md: 0 6px 18px rgba(25, 42, 69, 0.07);
+      --shadow-lg: 0 12px 28px rgba(25, 42, 69, 0.10);
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 24px;
@@ -137,14 +137,13 @@
       touch-action: none;
     }
 
-    /* Aktifkan scroll lancar setelah amplop dibuka */
+    /* Aktifkan scroll lancar tanpa lag setelah amplop dibuka */
     html.invitation-open {
       height: auto !important;
       min-height: 100%;
       overflow-x: hidden !important;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
       background-color: #101d30 !important;
     }
 
@@ -165,7 +164,7 @@
       min-height: 100vh;
       min-height: 100dvh;
       position: relative;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
@@ -333,7 +332,7 @@
       padding-left: 20px;
       padding-right: 20px;
       text-align: center;
-      transition: transform 1.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.6s ease, visibility 1.8s ease;
+      transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.4s ease, visibility 1.6s ease;
       overflow: hidden;
       box-sizing: border-box;
     }
@@ -361,14 +360,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: brightness(1.05) contrast(1.03);
-      transition: transform 1.2s ease, opacity 0.5s ease;
-      animation: heroZoomSlow 20s ease-in-out infinite alternate;
-    }
-
-    @keyframes heroZoomSlow {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.08); }
+      transform: translate3d(0, 0, 0);
     }
 
     .cover-hero-overlay {
@@ -424,23 +416,23 @@
     .btn-cover-pulse { animation: btnGlowPulse 3.5s ease-in-out 3.8s infinite; }
 
     @keyframes coverFadeDown {
-      0% { opacity: 0; transform: translateY(-26px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translate3d(0, -20px, 0); }
+      100% { opacity: 1; transform: translate3d(0, 0, 0); }
     }
 
     @keyframes coverFadeUp {
-      0% { opacity: 0; transform: translateY(28px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translate3d(0, 20px, 0); }
+      100% { opacity: 1; transform: translate3d(0, 0, 0); }
     }
 
     @keyframes coverScaleIn {
-      0% { opacity: 0; transform: scale(0.9) translateY(-10px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
+      0% { opacity: 0; transform: scale(0.94) translate3d(0, -8px, 0); }
+      100% { opacity: 1; transform: scale(1) translate3d(0, 0, 0); }
     }
 
     @keyframes btnGlowPulse {
-      0%, 100% { box-shadow: 0 0 12px rgba(197, 168, 128, 0.3), 0 8px 24px rgba(0, 0, 0, 0.5); }
-      50% { box-shadow: 0 0 26px rgba(223, 202, 167, 0.7), 0 8px 28px rgba(0, 0, 0, 0.65); }
+      0%, 100% { box-shadow: 0 0 10px rgba(197, 168, 128, 0.25), 0 6px 18px rgba(0, 0, 0, 0.45); }
+      50% { box-shadow: 0 0 20px rgba(223, 202, 167, 0.55), 0 6px 20px rgba(0, 0, 0, 0.55); }
     }
 
     .cover-crest-frameless {
@@ -464,7 +456,7 @@
       margin-bottom: 6px;
       text-align: center;
       width: 100%;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85), 0 4px 12px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
     }
 
     .couple-title-center {
@@ -485,13 +477,13 @@
       text-align: center;
       width: 100%;
       color: var(--gold-light);
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 4px 16px rgba(0, 0, 0, 0.95), 0 0 24px rgba(197, 168, 128, 0.55);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 20px rgba(197, 168, 128, 0.45);
     }
 
     .cover-crest-frameless #coverNamaPria,
     .cover-crest-frameless #coverNamaWanita {
       color: var(--gold-light);
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 4px 16px rgba(0, 0, 0, 0.95), 0 0 20px rgba(197, 168, 128, 0.55);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 16px rgba(197, 168, 128, 0.45);
     }
 
     .ampersand {
@@ -505,7 +497,7 @@
       justify-content: center;
       line-height: 1;
       margin: 0 6px;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 4px 16px rgba(0, 0, 0, 0.95), 0 0 20px rgba(197, 168, 128, 0.55);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
       vertical-align: middle;
     }
 
@@ -514,7 +506,7 @@
       color: var(--gold-light);
       margin-top: 8px;
       letter-spacing: 2px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85), 0 4px 10px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
       font-weight: 600;
     }
 
@@ -531,7 +523,7 @@
       font-size: 0.86rem;
       color: var(--gold-light);
       margin-bottom: 2px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 0 3px 8px rgba(0, 0, 0, 1);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
       font-weight: 500;
       letter-spacing: 0.5px;
     }
@@ -542,7 +534,7 @@
       color: var(--gold-ivory);
       text-align: center;
       margin: 4px 0;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 4px 16px rgba(0, 0, 0, 1), 0 0 20px rgba(197, 168, 128, 0.55);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 0 18px rgba(197, 168, 128, 0.45);
       letter-spacing: 0.5px;
     }
 
@@ -554,7 +546,7 @@
       margin-right: auto;
       line-height: 1.45;
       color: rgba(243, 235, 217, 0.95);
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 0 3px 8px rgba(0, 0, 0, 1);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
     }
 
     .btn-primary {
@@ -570,7 +562,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
       transition: var(--transition);
       text-decoration: none;
       width: 100%;
@@ -648,7 +640,7 @@
       max-height: 620px;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-lg), 0 12px 36px rgba(16, 29, 48, 0.28);
+      box-shadow: var(--shadow-md);
       border: 1.5px solid var(--gold-accent);
       display: flex;
       flex-direction: column;
@@ -658,9 +650,9 @@
       text-align: center;
       margin-bottom: 20px;
       background-color: var(--navy-deep);
-      transform: scale(0.97);
+      transform: scale(0.98);
       opacity: 0;
-      transition: transform 3.0s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, opacity 2.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+      transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s, opacity 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
     }
 
     .invitation-revealed .unified-hero-frame {
@@ -670,10 +662,10 @@
 
     .unified-hero-bg {
       position: absolute;
-      top: -15%;
+      top: -10%;
       left: 0;
       width: 100%;
-      height: 130%;
+      height: 120%;
       z-index: 1;
       overflow: hidden;
       pointer-events: none;
@@ -685,11 +677,8 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: brightness(1.05) contrast(1.03);
-      transform: translate3d(0, 0, 0) scale(1.08);
-      will-change: transform;
+      transform: translate3d(0, 0, 0) scale(1.04);
       pointer-events: none;
-      transition: transform 0.15s ease-out, opacity 0.5s ease;
     }
 
     .unified-hero-overlay {
@@ -717,12 +706,12 @@
       flex-direction: column;
       align-items: center;
       opacity: 0;
-      transform: translateY(-24px);
-      transition: opacity 2.5s ease 0.5s, transform 2.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+      transform: translate3d(0, -18px, 0);
+      transition: opacity 2.0s ease 0.4s, transform 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
       pointer-events: none;
     }
 
-    .invitation-revealed .unified-hero-top { opacity: 1; transform: translateY(0); }
+    .invitation-revealed .unified-hero-top { opacity: 1; transform: translate3d(0, 0, 0); }
 
     .unified-hero-top h5 {
       font-size: 0.74rem;
@@ -732,7 +721,7 @@
       margin-bottom: 8px;
       text-align: center;
       width: 100%;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85), 0 4px 10px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
       font-weight: 600;
     }
 
@@ -742,13 +731,13 @@
       text-align: center;
       width: 100%;
       color: var(--gold-light);
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 18px rgba(0, 0, 0, 0.95), 0 0 24px rgba(197, 168, 128, 0.55);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(197, 168, 128, 0.45);
     }
 
     .unified-hero-top #headerNamaPria,
     .unified-hero-top #headerNamaWanita {
       color: var(--gold-light);
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 18px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
     }
 
     .unified-hero-date {
@@ -757,7 +746,7 @@
       color: var(--gold-champagne);
       margin-top: 8px;
       font-weight: 600;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 4px 12px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
     }
 
     .unified-hero-bottom {
@@ -768,18 +757,18 @@
       flex-direction: column;
       align-items: center;
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 2.5s ease 0.7s, transform 2.5s cubic-bezier(0.16, 1, 0.3, 1) 0.7s;
+      transform: translate3d(0, 18px, 0);
+      transition: opacity 2.0s ease 0.6s, transform 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.6s;
       pointer-events: none;
     }
 
-    .invitation-revealed .unified-hero-bottom { opacity: 1; transform: translateY(0); }
+    .invitation-revealed .unified-hero-bottom { opacity: 1; transform: translate3d(0, 0, 0); }
 
     .hero-script-tag {
       font-family: 'Great Vibes', cursive;
       font-size: 1.85rem;
       color: var(--gold-light);
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(197, 168, 128, 0.6);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 16px rgba(197, 168, 128, 0.5);
       letter-spacing: 1px;
     }
 
@@ -789,13 +778,13 @@
       gap: 10px;
       margin-top: 18px;
       opacity: 0;
-      transform: translateY(24px) scale(0.94);
-      transition: opacity 3.0s cubic-bezier(0.16, 1, 0.3, 1) 0.6s, transform 3.0s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+      transform: translate3d(0, 18px, 0);
+      transition: opacity 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s, transform 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
     }
 
     .invitation-revealed .countdown-grid {
       opacity: 1 !important;
-      transform: translateY(0) scale(1) !important;
+      transform: translate3d(0, 0, 0) !important;
     }
 
     .countdown-box {
@@ -807,10 +796,7 @@
       box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
-      transition: transform 0.3s ease;
     }
-
-    .countdown-box:hover { transform: translateY(-2px); }
 
     .countdown-num {
       font-size: 1.65rem;
@@ -851,6 +837,10 @@
     .section-divider::after { background: linear-gradient(to left, transparent, var(--gold-accent)); }
     .section-divider i { color: var(--gold-accent); font-size: 0.85rem; }
 
+    /* ========================================================================
+       SISTEM ANIMASI SCROLL LAMBAT, MEWAH & BEBAS JANK UNTUK HP LOW-END
+       Menggunakan 2D Translate murni dengan kurva lambat tanpa rotasi 3D berat
+       ======================================================================== */
     .reveal-on-scroll,
     .reveal-slide-left,
     .reveal-slide-right,
@@ -858,18 +848,15 @@
     .reveal-scale,
     .reveal-tilt-up {
       opacity: 0;
-      will-change: transform, opacity;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 1.9s cubic-bezier(0.22, 1, 0.36, 1), transform 1.9s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .reveal-on-scroll { transform: translate3d(0, 32px, 0); }
-    .reveal-slide-left { transform: translate3d(-35px, 15px, 0); }
-    .reveal-slide-right { transform: translate3d(35px, 15px, 0); }
-    .reveal-pop-shimmer { transform: scale3d(0.85, 0.85, 1) rotate(-4deg); }
-    .reveal-scale { transform: scale3d(0.92, 0.92, 1) translate3d(0, 16px, 0); }
-    .reveal-tilt-up { transform: perspective(600px) rotateX(10deg) translate3d(0, 24px, 0); }
+    .reveal-on-scroll { transform: translate3d(0, 24px, 0); }
+    .reveal-slide-left { transform: translate3d(-22px, 0, 0); }
+    .reveal-slide-right { transform: translate3d(22px, 0, 0); }
+    .reveal-pop-shimmer { transform: scale(0.95) translate3d(0, 10px, 0); }
+    .reveal-scale { transform: scale(0.95) translate3d(0, 12px, 0); }
+    .reveal-tilt-up { transform: translate3d(0, 20px, 0); }
 
     .reveal-on-scroll.is-revealed,
     .reveal-slide-left.is-revealed,
@@ -878,7 +865,7 @@
     .reveal-scale.is-revealed,
     .reveal-tilt-up.is-revealed {
       opacity: 1 !important;
-      transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate(0deg) !important;
+      transform: translate3d(0, 0, 0) scale(1) !important;
     }
 
     .rsvp-box,
@@ -897,7 +884,7 @@
       padding: 28px 18px 24px;
       text-align: center;
       margin-bottom: 20px;
-      box-shadow: 0 10px 32px rgba(25, 42, 69, 0.07), 0 2px 6px rgba(197, 168, 128, 0.25);
+      box-shadow: var(--shadow-md);
       position: relative;
       overflow: hidden;
     }
@@ -966,14 +953,10 @@
       pointer-events: none;
       opacity: 0.82;
       z-index: 1;
-      transition: transform 0.4s ease;
     }
 
-    .decor-left { left: calc(50% - 132px); transform: scaleX(1); }
+    .decor-left { left: calc(50% - 132px); }
     .decor-right { right: calc(50% - 132px); transform: scaleX(-1); }
-
-    .couple-person-box:hover .decor-left { transform: scaleX(1) translateX(-4px) scale(1.03); }
-    .couple-person-box:hover .decor-right { transform: scaleX(-1) translateX(-4px) scale(1.03); }
 
     @media (max-width: 380px) {
       .botanical-side-decor { width: 52px; height: 100px; }
@@ -994,13 +977,10 @@
       border-radius: 70px 70px 20px 20px;
       padding: 4px;
       background: linear-gradient(145deg, var(--gold-light) 0%, var(--gold-dark) 50%, var(--gold-accent) 100%);
-      box-shadow: 0 8px 22px rgba(197, 168, 128, 0.35), 0 0 0 3px rgba(223, 202, 167, 0.2);
+      box-shadow: 0 6px 18px rgba(197, 168, 128, 0.28);
       position: relative;
       overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     }
-
-    .couple-photo-frame:hover { transform: translateY(-2px) scale(1.02); }
 
     .couple-photo-frame-inner {
       width: 100%;
@@ -1016,10 +996,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transition: transform 0.5s ease;
     }
-
-    .couple-photo-frame:hover .couple-photo-frame-inner img { transform: scale(1.05); }
 
     .couple-person-name {
       font-size: 1.48rem;
@@ -1113,7 +1090,6 @@
         rgba(197, 168, 128, 0.95) 100%
       );
       border-radius: 2px;
-      box-shadow: 0 0 6px rgba(197, 168, 128, 0.35);
     }
 
     .story-item {
@@ -1137,15 +1113,8 @@
       justify-content: center;
       color: var(--gold-champagne);
       font-size: 0.72rem;
-      box-shadow: 0 0 16px rgba(197, 168, 128, 0.45);
+      box-shadow: 0 0 12px rgba(197, 168, 128, 0.35);
       z-index: 3;
-      transition: var(--transition);
-    }
-
-    .story-item:hover .story-marker {
-      transform: scale(1.12);
-      border-color: var(--gold-light);
-      box-shadow: 0 0 22px rgba(223, 202, 167, 0.75);
     }
 
     .marker-pulse {
@@ -1169,17 +1138,10 @@
       border-radius: 20px 20px 20px 8px;
       padding: 22px 18px 20px;
       position: relative;
-      box-shadow: 0 10px 26px rgba(25, 42, 69, 0.06), 0 2px 8px rgba(197, 168, 128, 0.18);
+      box-shadow: var(--shadow-sm);
       overflow: hidden;
       width: 100%;
       text-align: left;
-      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
-    }
-
-    .story-card:hover {
-      transform: translateY(-3px) translateX(2px);
-      box-shadow: 0 14px 34px rgba(25, 42, 69, 0.1), 0 4px 14px rgba(197, 168, 128, 0.3);
-      border-color: var(--gold-accent);
     }
 
     .story-card-top-bar {
@@ -1200,13 +1162,6 @@
       pointer-events: none;
       opacity: 0.70;
       z-index: 1;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      filter: drop-shadow(0 2px 4px rgba(197, 168, 128, 0.25));
-    }
-
-    .story-card:hover .story-card-ornament {
-      opacity: 0.95;
-      transform: scale(1.05);
     }
 
     .story-header-meta {
@@ -1241,7 +1196,7 @@
       border-radius: 20px;
       letter-spacing: 1px;
       border: 1px solid var(--gold-accent);
-      box-shadow: 0 4px 12px rgba(16, 29, 48, 0.22), 0 0 8px rgba(197, 168, 128, 0.28);
+      box-shadow: 0 3px 8px rgba(16, 29, 48, 0.18);
       position: relative;
       z-index: 2;
     }
@@ -1419,7 +1374,7 @@
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       padding: 12px 15px;
       margin-bottom: 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
     }
 
     .comment-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
@@ -2121,7 +2076,7 @@
       </div>
 
       <div class="rsvp-box">
-        <form id="rsvpForm" onsubmit="handleRSVPSubmit(event)">
+        <form id="rsvpForm" onsubmit="event.preventDefault(); handleRSVPSubmit(event);">
           <div class="form-group">
             <label for="inputNama">Nama Lengkap</label>
             <input type="text" id="inputNama" class="form-control" placeholder="Masukkan nama Anda..." required>
@@ -2259,7 +2214,7 @@
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
           Masukkan PIN sandi keamanan Anda untuk mengakses generator link dan rekap kehadiran.
         </p>
-        <form onsubmit="handleAdminLogin(event)">
+        <form onsubmit="event.preventDefault(); handleAdminLogin(event);">
           <div class="form-group">
             <label for="adminPinInput">PIN Admin</label>
             <input type="password" id="adminPinInput" class="form-control" placeholder="Masukkan PIN..." maxlength="10" required>
@@ -2300,7 +2255,7 @@
         </div>
 
         <div id="tabContentNewGuest">
-          <form onsubmit="handleGenerateWALink(event)">
+          <form onsubmit="event.preventDefault(); handleGenerateWALink(event);">
             <div class="form-group">
               <label for="adminInputNama">Nama Tamu Undangan</label>
               <input type="text" id="adminInputNama" class="form-control" placeholder="Contoh: Budi Santoso & Partner" required>
@@ -2749,6 +2704,7 @@
 
     var scrollObserver = null;
 
+    /* OPTIMASI: Observer Native C++ Browser Ringan Tanpa Lag di HP Low-End */
     function initLuxuryScrollObserver() {
       var animElements = document.querySelectorAll('.reveal-on-scroll, .reveal-slide-left, .reveal-slide-right, .reveal-pop-shimmer, .reveal-scale, .reveal-tilt-up');
 
@@ -2757,20 +2713,22 @@
 
         var observerOptions = {
           root: null,
-          rootMargin: '0px 0px -40px 0px',
+          rootMargin: '0px 0px -20px 0px',
           threshold: 0.05
         };
 
         scrollObserver = new IntersectionObserver(function(entries, observer) {
-          entries.forEach(function(entry) {
+          for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
             if (entry.isIntersecting) {
               entry.target.classList.add('is-revealed');
               observer.unobserve(entry.target);
             }
-          });
+          }
         }, observerOptions);
 
         animElements.forEach(function(el) {
+          if (el.classList.contains('is-revealed')) return;
           scrollObserver.observe(el);
         });
       } else {
@@ -2780,46 +2738,32 @@
       }
     }
 
-    function checkFailsafeVisibility() {
-      var allReveals = document.querySelectorAll('.reveal-on-scroll:not(.is-revealed), .reveal-slide-left:not(.is-revealed), .reveal-slide-right:not(.is-revealed), .reveal-pop-shimmer:not(.is-revealed), .reveal-scale:not(.is-revealed), .reveal-tilt-up:not(.is-revealed)');
-      var winH = window.innerHeight || document.documentElement.clientHeight;
-      for (var i = 0; i < allReveals.length; i++) {
-        var rect = allReveals[i].getBoundingClientRect();
-        if (rect.top <= winH - 30 && rect.bottom >= 0) {
-          allReveals[i].classList.add('is-revealed');
-        }
-      }
-    }
-
+    /* OPTIMASI SCROLL HANDLER: Mencegah Layout Thrashing & Forced Reflow */
     var isTicking = false;
     function handleWindowScroll() {
       if (!isTicking) {
         window.requestAnimationFrame(function() {
           updateParallaxDepthEffect();
-          checkFailsafeVisibility();
           isTicking = false;
         });
         isTicking = true;
       }
     }
 
+    /* Parallax Cepat Tanpa getBoundingClientRect() di Setiap Scroll */
     function updateParallaxDepthEffect() {
       var heroPhoto = document.getElementById('mainHeroPhoto');
-      var heroFrame = document.getElementById('unifiedHeroFrame');
-      if (!heroPhoto || !heroFrame) return;
+      if (!heroPhoto) return;
 
       var scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       if (scrollY <= 0) {
-        heroPhoto.style.transform = 'translate3d(0, 0, 0) scale(1.08)';
+        heroPhoto.style.transform = 'translate3d(0, 0, 0) scale(1.04)';
         return;
       }
 
-      var rect = heroFrame.getBoundingClientRect();
-      var winHeight = window.innerHeight;
-
-      if (rect.bottom > 0 && rect.top < winHeight) {
-        var parallaxOffsetY = scrollY * 0.12;
-        heroPhoto.style.transform = 'translate3d(0, ' + parallaxOffsetY + 'px, 0) scale(1.08)';
+      if (scrollY < 650) {
+        var parallaxOffsetY = scrollY * 0.10;
+        heroPhoto.style.transform = 'translate3d(0, ' + parallaxOffsetY + 'px, 0) scale(1.04)';
       }
     }
 
@@ -3283,7 +3227,7 @@
         cover.classList.add('opened');
         setTimeout(function() {
           cover.style.display = 'none';
-        }, 1900);
+        }, 1700);
       }
       
       var appContainer = document.querySelector('.app-container');
@@ -3298,7 +3242,7 @@
 
       var heroPhoto = document.getElementById('mainHeroPhoto');
       if (heroPhoto) {
-        heroPhoto.style.transform = 'translate3d(0, 0, 0) scale(1.08)';
+        heroPhoto.style.transform = 'translate3d(0, 0, 0) scale(1.04)';
       }
 
       setTimeout(function() {
@@ -3656,8 +3600,6 @@
     }
 
     function handleRSVPSubmit(e) {
-      e.preventDefault();
-      
       var namaVal = document.getElementById('inputNama').value.trim();
       var konfirmasiVal = document.getElementById('selectKonfirmasi').value;
       var jumlahVal = (konfirmasiVal === 'Hadir') ? document.getElementById('selectJumlah').value : '-';
@@ -3767,7 +3709,6 @@
     }
 
     function handleAdminLogin(e) {
-      e.preventDefault();
       var pinVal = document.getElementById('adminPinInput').value.trim();
       var btn = document.getElementById('btnAdminLogin');
       
@@ -4006,7 +3947,6 @@
     }
 
     function handleGenerateWALink(e) {
-      e.preventDefault();
       var namaVal = document.getElementById('adminInputNama').value.trim();
       var waVal = document.getElementById('adminInputWa').value.trim();
       var kategoriVal = document.getElementById('adminSelectKategori').value;
