@@ -5,54 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
   
   <!-- ==========================================================================
-       ⚙️ KONFIGURASI UTAMA APLIKASI (PENGATURAN CEPAT / TOP CONFIG)
-       Ubah URL Backend API Google Apps Script & URL Cover Preview WA di sini!
+       ⚙️ PENGATURAN CEPAT GITHUB PAGES (WA PREVIEW & BACKEND API)
+       Cukup ubah 4 baris di bawah ini untuk setiap pasangan baru di GitHub Pages!
        ========================================================================== -->
   <script>
     /**
-     * 1. URL Web App Google Apps Script hasil Deploy (Execute as: Me, Who has access: Anyone)
-     * Ganti dengan URL exec backend Anda:
+     * 1. URL Web App Google Apps Script hasil Deploy backend (berakhiran /exec)
      */
     var DEFAULT_GAS_API_URL = "https://script.google.com/macros/s/AKfycbzhKglcP_4T_RMn5zqhb8RAv-bJCAOs6HnQmUgIefiS0c_yDILWdAQu8qGRt4MkmmQ7/exec";
 
     /**
-     * 2. Direct URL Foto Cover untuk Thumbnail WhatsApp (Khusus GitHub Pages)
-     * Masukkan link foto langsung (Direct link / Google Drive thumbnail) agar saat link 
-     * ditempel di WA, gambar langsung tampil tanpa menunggu eksekusi JS.
+     * 2. Direct URL Foto Cover untuk Thumbnail WhatsApp di GitHub Pages
+     *    TIPS GOOGLE DRIVE: Ambil ID File dari link Drive Anda, lalu pasang format:
+     *    https://lh3.googleusercontent.com/d/ID_FILE_GOOGLE_DRIVE=w1200
      */
-    var DEFAULT_OG_IMAGE_URL = "https://drive.google.com/file/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp/view?usp=drive_link";
+    var DEFAULT_OG_IMAGE_URL = "https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200";
   </script>
 
-  <!-- Mobile & PWA Fullscreen Capabilities -->
+  <!-- ==========================================================================
+       SEO & WHATSAPP / SOCIAL MEDIA CRAWLER PREVIEW (DIBACA LANGSUNG ROBOT WA)
+       Ganti teks judul di bawah sesuai nama pasangan baru:
+       ========================================================================== -->
+  <title id="metaTitle">The Wedding of Tono & Tini</title>
+  <meta name="title" id="dynMetaTitle" content="The Wedding of Tono & Tini">
+  <meta name="description" id="dynMetaDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
+  
+  <!-- Open Graph Standard (WhatsApp, Facebook, Telegram) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" id="dynOgTitle" content="The Wedding of Tono & Tini">
+  <meta property="og:description" id="dynOgDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
+  
+  <!-- Tag Gambar WhatsApp: Robot WA membaca tag ini saat link pertama kali ditempel -->
+  <meta property="og:image" id="dynOgImage" content="https://lh3.googleusercontent.com/d/1YourGoogleDriveFileIdHere=w1200">
+  <meta property="og:image:secure_url" id="dynOgImageSecure" content="https://lh3.googleusercontent.com/d/1YourGoogleDriveFileIdHere=w1200">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:site_name" content="Undangan Pernikahan Digital">
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="dynTwTitle" content="The Wedding of Tono & Tini">
+  <meta name="twitter:description" id="dynTwDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
+  <meta name="twitter:image" id="dynTwImage" content="https://lh3.googleusercontent.com/d/1YourGoogleDriveFileIdHere=w1200">
+
+  <!-- Mobile & PWA Capabilities -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#101d30">
   <meta name="msapplication-navbutton-color" content="#101d30">
-  
-  <!-- ==========================================================================
-       SEO & WHATSAPP / SOCIAL MEDIA OPEN GRAPH TAGS (CRAWLER-READY)
-       ========================================================================== -->
-  <title id="metaTitle">The Wedding Invitation</title>
-  <meta name="title" id="dynMetaTitle" content="The Wedding Invitation">
-  <meta name="description" id="dynMetaDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  
-  <!-- Open Graph Standard (WhatsApp, Facebook, Telegram) -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" id="dynOgTitle" content="The Wedding Invitation">
-  <meta property="og:description" id="dynOgDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  <meta property="og:image" id="dynOgImage" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
-  <meta property="og:image:secure_url" id="dynOgImageSecure" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:site_name" content="The Wedding Invitation">
-
-  <!-- Twitter Card Preview -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="dynTwTitle" content="The Wedding Invitation">
-  <meta name="twitter:description" id="dynTwDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  <meta name="twitter:image" id="dynTwImage" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
@@ -115,7 +117,7 @@
       position: relative;
     }
 
-    /* Saat cover masih tertutup: Kunci scroll window agar tamu membuka amplop dulu */
+    /* Kunci scroll sebelum amplop dibuka */
     body.cover-locked {
       overflow: hidden !important;
       height: 100vh !important;
@@ -123,7 +125,7 @@
       touch-action: none;
     }
 
-    /* Saat cover sudah dibuka: Aktifkan native document scroll untuk auto-hide address bar browser */
+    /* Aktifkan scroll lancar setelah amplop dibuka */
     html.invitation-open {
       height: auto !important;
       min-height: 100%;
@@ -2030,13 +2032,13 @@
 
       <div class="event-card reveal-tilt-up">
         <span class="event-badge"><i class="fa-solid fa-ring"></i> Akad Nikah</span>
-        <h4 class="font-serif" id="tanggalAkad" style="font-size: 1.35rem; color: var(--navy-primary); font-weight: 700;">Sabtu, 26 September 2026</h4>
+        <h4 class="font-serif" id="tanggalAkad" style="font-size: 1.35rem; color: var(--navy-primary); font-weight: 700;">-</h4>
         <div class="event-time-row">
           <i class="fa-regular fa-clock" style="color: var(--gold-dark);"></i>
-          <span id="jamAkad">14:00 - 15:00 WIB</span>
+          <span id="jamAkad">-</span>
         </div>
-        <p id="lokasiAkad" style="font-weight: 600; font-size: 0.95rem; color: var(--navy-deep); margin-top: 8px;">Ceremony Garden Lawn, The Grand Manor Estate</p>
-        <p id="alamatAkad" style="font-size: 0.82rem; color: var(--text-muted);">Jl. Villa Indah No. 88, Lembang, Bandung Barat</p>
+        <p id="lokasiAkad" style="font-weight: 600; font-size: 0.95rem; color: var(--navy-deep); margin-top: 8px;">-</p>
+        <p id="alamatAkad" style="font-size: 0.82rem; color: var(--text-muted);">-</p>
         
         <div style="margin-top: 14px;">
           <button type="button" class="btn-gold-outline" style="width: 100%; font-size: 0.82rem; padding: 8px 14px;" onclick="addToCalendar('akad')">
@@ -2047,13 +2049,13 @@
 
       <div class="event-card reveal-tilt-up">
         <span class="event-badge"><i class="fa-solid fa-champagne-glasses"></i> Resepsi Pernikahan</span>
-        <h4 class="font-serif" id="tanggalResepsi" style="font-size: 1.35rem; color: var(--navy-primary); font-weight: 700;">Sabtu, 26 September 2026</h4>
+        <h4 class="font-serif" id="tanggalResepsi" style="font-size: 1.35rem; color: var(--navy-primary); font-weight: 700;">-</h4>
         <div class="event-time-row">
           <i class="fa-regular fa-clock" style="color: var(--gold-dark);"></i>
-          <span id="jamResepsi">18:00 - 21:00 WIB</span>
+          <span id="jamResepsi">-</span>
         </div>
-        <p id="lokasiResepsi" style="font-weight: 600; font-size: 0.95rem; color: var(--navy-deep); margin-top: 8px;">Grand Ballroom, The Grand Manor Estate</p>
-        <p id="alamatResepsi" style="font-size: 0.82rem; color: var(--text-muted);">Jl. Villa Indah No. 88, Lembang, Bandung Barat</p>
+        <p id="lokasiResepsi" style="font-weight: 600; font-size: 0.95rem; color: var(--navy-deep); margin-top: 8px;">-</p>
+        <p id="alamatResepsi" style="font-size: 0.82rem; color: var(--text-muted);">-</p>
 
         <div style="margin-top: 14px;">
           <button type="button" class="btn-gold-outline" style="width: 100%; font-size: 0.82rem; padding: 8px 14px;" onclick="addToCalendar('resepsi')">
@@ -2063,7 +2065,7 @@
       </div>
 
       <div class="reveal-on-scroll" style="text-align: center; margin-top: 6px;">
-        <a id="btnMaps" href="https://maps.google.com/?q=The+Grand+Manor+Estate" target="_blank" class="btn-primary" style="text-decoration: none;">
+        <a id="btnMaps" href="#" target="_blank" class="btn-primary" style="text-decoration: none;">
           <i class="fa-solid fa-map-location-dot"></i> Buka Rute Google Maps
         </a>
       </div>
@@ -2077,11 +2079,11 @@
 
       <div class="gift-card reveal-scale" id="cardBank1">
         <div class="bank-header">
-          <span class="bank-name" id="bank1Nama">Bank Mandiri</span>
+          <span class="bank-name" id="bank1Nama">-</span>
           <i class="fa-solid fa-building-columns" style="color: var(--gold-dark);"></i>
         </div>
-        <div class="bank-acc-number" id="bank1Norek">1320098765432</div>
-        <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">a.n. <strong id="bank1An" style="color: var(--navy-primary);">Alexander Pratama</strong></div>
+        <div class="bank-acc-number" id="bank1Norek">-</div>
+        <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">a.n. <strong id="bank1An" style="color: var(--navy-primary);">-</strong></div>
         <button type="button" class="btn-gold-outline" style="width: 100%;" onclick="copyBankToClipboard('bank1Norek', 'bank1Nama')">
           <i class="fa-regular fa-copy"></i> Salin Nomor Rekening
         </button>
@@ -2089,11 +2091,11 @@
 
       <div class="gift-card reveal-scale" id="cardBank2">
         <div class="bank-header">
-          <span class="bank-name" id="bank2Nama">BCA</span>
+          <span class="bank-name" id="bank2Nama">-</span>
           <i class="fa-solid fa-building-columns" style="color: var(--gold-dark);"></i>
         </div>
-        <div class="bank-acc-number" id="bank2Norek">8735091244</div>
-        <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">a.n. <strong id="bank2An" style="color: var(--navy-primary);">Olivia Anatasya</strong></div>
+        <div class="bank-acc-number" id="bank2Norek">-</div>
+        <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">a.n. <strong id="bank2An" style="color: var(--navy-primary);">-</strong></div>
         <button type="button" class="btn-gold-outline" style="width: 100%;" onclick="copyBankToClipboard('bank2Norek', 'bank2Nama')">
           <i class="fa-regular fa-copy"></i> Salin Nomor Rekening
         </button>
@@ -2408,7 +2410,6 @@
         var custom = localStorage.getItem(OFFLINE_KEYS.CUSTOM_API_URL);
         if (custom && custom.indexOf('http') === 0) return custom.trim();
       } catch (e) {}
-      // Membaca dari konfigurasi atas yang mudah diakses
       return (typeof DEFAULT_GAS_API_URL !== 'undefined') ? DEFAULT_GAS_API_URL : "";
     }
 
@@ -2432,7 +2433,7 @@
       return null;
     }
 
-    // Default Fallback Settings Bersih Tanpa Hardcoded Data Lama
+    // Default Fallback Settings Bersih
     var defaultSettings = {
       judul_acara: '',
       teks_pembuka_mempelai: 'Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud melangsungkan pernikahan:',
@@ -2444,7 +2445,7 @@
       nama_lengkap_wanita: '',
       ortu_wanita: '',
       foto_wanita: '',
-      foto_cover: '',
+      foto_cover: (typeof DEFAULT_OG_IMAGE_URL !== 'undefined' && DEFAULT_OG_IMAGE_URL.indexOf('1YourGoogleDriveFileIdHere') === -1) ? DEFAULT_OG_IMAGE_URL : '',
       tanggal_header: '',
       tanggal_countdown: '',
       tanggal_akad: '',
@@ -2484,7 +2485,6 @@
     var localMockGuests = [];
 
     function callBackendAPI(action, params, callbackSuccess, callbackError) {
-      // 1. Jika dijalankan di dalam lingkungan native Google Apps Script
       if (typeof google !== 'undefined' && google.script && google.script.run) {
         if (action === 'getSettings') {
           google.script.run.withSuccessHandler(function(res) { callbackSuccess({ success: true, settings: res }); }).withFailureHandler(callbackError).getWeddingSettings();
@@ -2506,7 +2506,6 @@
         return;
       }
 
-      // 2. Jika dijalankan di GitHub Pages / Server Eksternal (REST API Mode)
       var apiUrl = getActiveApiUrl();
       if (!apiUrl || apiUrl.indexOf('http') !== 0 || apiUrl.indexOf('REPLACE_WITH_YOUR_EXEC_ID') > -1) {
         if (callbackError) callbackError(new Error('URL Google Apps Script belum dikonfigurasi. Silakan atur di bagian atas index.html atau Panel Admin.'));
@@ -2715,10 +2714,6 @@
       return cleanUrl;
     }
 
-    /**
-     * Konversi link Google Drive menjadi Direct CDN Image
-     * Menggunakan CDN lh3.googleusercontent.com yang ramah scraper WhatsApp
-     */
     function formatDriveImageUrl(url, targetWidth) {
       if (!url) return '';
       var cleanUrl = String(url).trim();
@@ -2737,7 +2732,7 @@
         if (matchOpenId && matchOpenId[1]) fileId = matchOpenId[1];
       }
       if (fileId) {
-        var sz = targetWidth || 'w1000';
+        var sz = targetWidth || 'w1200';
         return 'https://lh3.googleusercontent.com/d/' + fileId + '=' + sz;
       }
       return cleanUrl;
@@ -3081,7 +3076,7 @@
           saveLocalData(OFFLINE_KEYS.SETTINGS, cachedSettings);
           applySettingsToDOM(cachedSettings);
 
-          var directCover = cachedSettings.foto_cover_direct || formatDriveImageUrl(cachedSettings.foto_cover, 'w1000');
+          var directCover = cachedSettings.foto_cover_direct || formatDriveImageUrl(cachedSettings.foto_cover, 'w1200');
           preloadCoverAndDismissLoader(directCover);
         } else {
           dismissAppLoader();
@@ -3150,14 +3145,13 @@
           if (headerDate) headerDate.textContent = headerDateStr;
         }
 
-        var directCoverUrl = s.foto_cover_direct || formatDriveImageUrl(s.foto_cover, 'w1000');
-        if (directCoverUrl) {
+        var directCoverUrl = s.foto_cover_direct || formatDriveImageUrl(s.foto_cover, 'w1200') || (typeof DEFAULT_OG_IMAGE_URL !== 'undefined' ? DEFAULT_OG_IMAGE_URL : '');
+        if (directCoverUrl && directCoverUrl.indexOf('1YourGoogleDriveFileIdHere') === -1) {
           var coverHero = document.getElementById('coverHeroPhoto');
           if (coverHero && coverHero.src !== directCoverUrl) coverHero.src = directCoverUrl;
           var mainHero = document.getElementById('mainHeroPhoto');
           if (mainHero && mainHero.src !== directCoverUrl) mainHero.src = directCoverUrl;
           
-          // Sinkronkan Open Graph & Twitter Card Image secara dinamis
           var ogImg = document.getElementById('dynOgImage');
           if (ogImg) ogImg.content = directCoverUrl;
           var ogImgSec = document.getElementById('dynOgImageSecure');
@@ -3847,7 +3841,7 @@
     }
 
     function buildClientWAMessage(namaVal, linkVal, agamaVal) {
-      var coupleText = (cachedSettings.nama_pria && cachedSettings.nama_wanita) ? (cachedSettings.nama_pria + ' & ' + cachedSettings.nama_wanita) : (cachedSettings.nama_pria || cachedSettings.nama_wanita || '');
+      var coupleText = (cachedSettings.nama_pria && cachedSettings.nama_wanita) ? (cachedSettings.nama_pria + ' & ' + cachedSettings.nama_wanita) : (cachedSettings.nama_pria || cachedSettings.nama_wanita || 'Tono & Tini');
       var cleanAgama = (agamaVal || 'Islam').toLowerCase();
 
       // 1. ISLAM
