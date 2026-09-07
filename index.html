@@ -4,22 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
   
-  <!-- Mobile & PWA Fullscreen Capabilities (Enables Native Address Bar Auto-Hide) -->
+  <!-- ==========================================================================
+       ⚙️ KONFIGURASI UTAMA APLIKASI (PENGATURAN CEPAT / TOP CONFIG)
+       Ubah URL Backend API Google Apps Script & URL Cover Preview WA di sini!
+       ========================================================================== -->
+  <script>
+    /**
+     * 1. URL Web App Google Apps Script hasil Deploy (Execute as: Me, Who has access: Anyone)
+     * Ganti dengan URL exec backend Anda:
+     */
+    var DEFAULT_GAS_API_URL = "https://script.google.com/macros/s/AKfycbzhKglcP_4T_RMn5zqhb8RAv-bJCAOs6HnQmUgIefiS0c_yDILWdAQu8qGRt4MkmmQ7/exec";
+
+    /**
+     * 2. Direct URL Foto Cover untuk Thumbnail WhatsApp (Khusus GitHub Pages)
+     * Masukkan link foto langsung (Direct link / Google Drive thumbnail) agar saat link 
+     * ditempel di WA, gambar langsung tampil tanpa menunggu eksekusi JS.
+     */
+    var DEFAULT_OG_IMAGE_URL = "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80";
+  </script>
+
+  <!-- Mobile & PWA Fullscreen Capabilities -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#101d30">
   <meta name="msapplication-navbutton-color" content="#101d30">
   
-  <!-- SEO & Social Media Open Graph (WhatsApp Preview & Share) -->
-  <title id="metaTitle">The Wedding Of Tono & Tini</title>
-  <meta name="title" id="dynMetaTitle" content="The Wedding Of Tono & Tini">
+  <!-- ==========================================================================
+       SEO & WHATSAPP / SOCIAL MEDIA OPEN GRAPH TAGS (CRAWLER-READY)
+       ========================================================================== -->
+  <title id="metaTitle">The Wedding Invitation</title>
+  <meta name="title" id="dynMetaTitle" content="The Wedding Invitation">
   <meta name="description" id="dynMetaDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" id="dynOgTitle" content="The Wedding Of Tono & Tini">
-  <meta property="og:description" id="dynOgDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  <meta property="og:image" id="dynOgImage" content="">
   
+  <!-- Open Graph Standard (WhatsApp, Facebook, Telegram) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" id="dynOgTitle" content="The Wedding Invitation">
+  <meta property="og:description" id="dynOgDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
+  <meta property="og:image" id="dynOgImage" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image:secure_url" id="dynOgImageSecure" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:site_name" content="The Wedding Invitation">
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="dynTwTitle" content="The Wedding Invitation">
+  <meta name="twitter:description" id="dynTwDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
+  <meta name="twitter:image" id="dynTwImage" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
+
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
   
@@ -1678,7 +1712,7 @@
 
   <div class="app-container">
     
-    <!-- Audio Background Player (Managed dynamically via JS) -->
+    <!-- Audio Background Player -->
     <audio id="bgAudio" preload="auto" loop playsinline webkit-playsinline></audio>
 
     <!-- Floating Music Button -->
@@ -2156,6 +2190,7 @@
     <span id="toastMessage">Pesan notifikasi</span>
   </div>
 
+  <!-- Vendor Promo Modal -->
   <div id="modalVendorPromo" class="modal-backdrop">
     <div class="admin-modal-card" style="max-width: 400px; text-align: center;">
       <div class="modal-header modal-header-centered">
@@ -2201,6 +2236,7 @@
     </div>
   </div>
 
+  <!-- Admin Auth Modal -->
   <div id="modalAdminAuth" class="modal-backdrop">
     <div class="admin-modal-card" style="max-width: 380px;">
       <div class="modal-header">
@@ -2224,6 +2260,7 @@
     </div>
   </div>
 
+  <!-- Admin Dashboard Modal -->
   <div id="modalAdminDashboard" class="modal-backdrop">
     <div class="admin-modal-card">
       <div class="modal-header">
@@ -2349,15 +2386,6 @@
   </div>
 
   <script>
-    /**
-     * ============================================================================
-     * KONFIGURASI BACKEND REST API (GOOGLE APPS SCRIPT)
-     * ============================================================================
-     * Ganti URL di bawah ini dengan URL Web App hasil Deploy Anda (Execute as: Me, Anyone).
-     * Jika URL sudah tersimpan di browser via Panel Admin, sistem akan otomatis memakainya.
-     */
-    var DEFAULT_GAS_API_URL = "https://script.google.com/macros/s/AKfycbzhKglcP_4T_RMn5zqhb8RAv-bJCAOs6HnQmUgIefiS0c_yDILWdAQu8qGRt4MkmmQ7/exec";
-    
     var isMusicPlaying = false;
     var isInvitationOpened = false;
     var countdownTarget = null;
@@ -2380,7 +2408,8 @@
         var custom = localStorage.getItem(OFFLINE_KEYS.CUSTOM_API_URL);
         if (custom && custom.indexOf('http') === 0) return custom.trim();
       } catch (e) {}
-      return DEFAULT_GAS_API_URL;
+      // Membaca dari konfigurasi atas yang mudah diakses
+      return (typeof DEFAULT_GAS_API_URL !== 'undefined') ? DEFAULT_GAS_API_URL : "";
     }
 
     function saveLocalData(key, data) {
@@ -2443,7 +2472,7 @@
 
     var defaultStories = [];
 
-    // Validasi & Sanitasi Cache: Bersihkan otomatis jika terdapat residu data lama
+    // Validasi & Sanitasi Cache
     var rawSettingsCache = getLocalData(OFFLINE_KEYS.SETTINGS);
     if (rawSettingsCache && (rawSettingsCache.nama_pria === 'Teguh' || rawSettingsCache.nama_wanita === 'Sefi')) {
       try { localStorage.removeItem(OFFLINE_KEYS.SETTINGS); } catch(e) {}
@@ -2480,7 +2509,7 @@
       // 2. Jika dijalankan di GitHub Pages / Server Eksternal (REST API Mode)
       var apiUrl = getActiveApiUrl();
       if (!apiUrl || apiUrl.indexOf('http') !== 0 || apiUrl.indexOf('REPLACE_WITH_YOUR_EXEC_ID') > -1) {
-        if (callbackError) callbackError(new Error('URL Google Apps Script belum dikonfigurasi. Silakan atur di Panel Admin.'));
+        if (callbackError) callbackError(new Error('URL Google Apps Script belum dikonfigurasi. Silakan atur di bagian atas index.html atau Panel Admin.'));
         return;
       }
 
@@ -2509,7 +2538,7 @@
       });
     }
 
-    /* GATEKEEPER LOADER ENGINE (Mencegah Stale Data Flash) */
+    /* GATEKEEPER LOADER ENGINE */
     var isLoaderDismissed = false;
 
     function dismissAppLoader() {
@@ -2541,7 +2570,6 @@
       img.src = coverUrl;
     }
 
-    // Failsafe cadangan (hanya aktif jika koneksi backend macet lebih dari 4.5 detik)
     setTimeout(function() {
       dismissAppLoader();
     }, 4500);
@@ -2687,6 +2715,10 @@
       return cleanUrl;
     }
 
+    /**
+     * Konversi link Google Drive menjadi Direct CDN Image
+     * Menggunakan CDN lh3.googleusercontent.com yang ramah scraper WhatsApp
+     */
     function formatDriveImageUrl(url, targetWidth) {
       if (!url) return '';
       var cleanUrl = String(url).trim();
@@ -2706,7 +2738,7 @@
       }
       if (fileId) {
         var sz = targetWidth || 'w1000';
-        return 'https://drive.google.com/thumbnail?id=' + fileId + '&sz=' + sz;
+        return 'https://lh3.googleusercontent.com/d/' + fileId + '=' + sz;
       }
       return cleanUrl;
     }
@@ -2795,7 +2827,6 @@
           inputGas.value = currentGas;
         }
 
-        // Terapkan data instan dari cache lokal (0ms rendering)
         applySettingsToDOM(cachedSettings);
         parseURLParameters();
         initCountdownEngine();
@@ -2809,7 +2840,6 @@
           loadInitialRSVP();
         }
 
-        // Sinkronisasi data real-time dari Google Sheets jika online
         if (navigator.onLine) {
           fetchWeddingSettings();
           fetchLoveStories();
@@ -3051,7 +3081,6 @@
           saveLocalData(OFFLINE_KEYS.SETTINGS, cachedSettings);
           applySettingsToDOM(cachedSettings);
 
-          // Data sheet berhasil diambil: preload gambar cover lalu buka loader dengan mulus
           var directCover = cachedSettings.foto_cover_direct || formatDriveImageUrl(cachedSettings.foto_cover, 'w1000');
           preloadCoverAndDismissLoader(directCover);
         } else {
@@ -3076,12 +3105,16 @@
         if (mTitle) mTitle.content = titleStr;
         var ogTitle = document.getElementById('dynOgTitle');
         if (ogTitle) ogTitle.content = titleStr;
+        var twTitle = document.getElementById('dynTwTitle');
+        if (twTitle) twTitle.content = titleStr;
 
         if (s.teks_penutup) {
           var mDesc = document.getElementById('dynMetaDesc');
           if (mDesc) mDesc.content = s.teks_penutup;
           var ogDesc = document.getElementById('dynOgDesc');
           if (ogDesc) ogDesc.content = s.teks_penutup;
+          var twDesc = document.getElementById('dynTwDesc');
+          if (twDesc) twDesc.content = s.teks_penutup;
         }
         
         var loaderInitialPria = document.getElementById('loaderInitialPria');
@@ -3123,8 +3156,14 @@
           if (coverHero && coverHero.src !== directCoverUrl) coverHero.src = directCoverUrl;
           var mainHero = document.getElementById('mainHeroPhoto');
           if (mainHero && mainHero.src !== directCoverUrl) mainHero.src = directCoverUrl;
+          
+          // Sinkronkan Open Graph & Twitter Card Image secara dinamis
           var ogImg = document.getElementById('dynOgImage');
           if (ogImg) ogImg.content = directCoverUrl;
+          var ogImgSec = document.getElementById('dynOgImageSecure');
+          if (ogImgSec) ogImgSec.content = directCoverUrl;
+          var twImg = document.getElementById('dynTwImage');
+          if (twImg) twImg.content = directCoverUrl;
         }
 
         if (s.nama_lengkap_pria) document.getElementById('namaLengkapPria').textContent = s.nama_lengkap_pria;
@@ -3225,7 +3264,6 @@
     function openInvitation() {
       isInvitationOpened = true;
 
-      // 1. Lepas kunci scroll dan aktifkan native window scroll (Memicu auto-hide address bar)
       document.body.classList.remove('cover-locked');
       document.documentElement.classList.add('invitation-open');
       document.body.classList.add('invitation-open');
@@ -3249,7 +3287,6 @@
       var fab = document.getElementById('audioFab');
       if (fab) fab.style.display = 'flex';
       
-      // 2. Putar musik langsung di event click (Memenuhi kebijakan mobile gesture)
       playAudio();
 
       var heroPhoto = document.getElementById('mainHeroPhoto');
@@ -3336,8 +3373,8 @@
     function addToCalendar(type) {
       try {
         var s = cachedSettings || {};
-        var namaPria = s.nama_pria || 'Teguh';
-        var namaWanita = s.nama_wanita || 'Sefi';
+        var namaPria = s.nama_pria || '';
+        var namaWanita = s.nama_wanita || '';
         var coupleText = (namaPria && namaWanita) ? (namaPria + ' & ' + namaWanita) : 'Pernikahan';
 
         var isAkad = (type === 'akad');
