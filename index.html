@@ -12,7 +12,7 @@
     /**
      * 1. URL Web App Google Apps Script hasil Deploy backend (berakhiran /exec)
      */
-    var DEFAULT_GAS_API_URL = "https://script.google.com/macros/s/AKfycbzhKglcP_4T_RMn5zqhb8RAv-bJCAOs6HnQmUgIefiS0c_yDILWdAQu8qGRt4MkmmQ7/exec";
+    var DEFAULT_GAS_API_URL = "https://script.google.com/macros/s/AKfycbz_REPLACE_WITH_YOUR_EXEC_ID/exec";
 
     /**
      * 2. Direct URL Foto Cover untuk Thumbnail WhatsApp di GitHub Pages
@@ -21,7 +21,7 @@
      *    b. Salin ID file dari link Drive Anda, pasang ke format direct CDN Google:
      *       https://lh3.googleusercontent.com/d/ID_FILE_GOOGLE_DRIVE=w1200
      */
-    var DEFAULT_OG_IMAGE_URL = "https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200";
+    var DEFAULT_OG_IMAGE_URL = "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80";
   </script>
 
   <!-- ==========================================================================
@@ -35,7 +35,7 @@
   <!-- Schema.org Microdata (Dibaca Google & WhatsApp Bot) -->
   <meta itemprop="name" content="The Wedding of Tono & Tini">
   <meta itemprop="description" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  <meta itemprop="image" id="dynItempropImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
+  <meta itemprop="image" id="dynItempropImage" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
 
   <!-- Open Graph Standard (WhatsApp, Telegram, Facebook) -->
   <meta property="og:type" content="website">
@@ -45,21 +45,21 @@
   <meta property="og:description" id="dynOgDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
   
   <!-- Tag Gambar WhatsApp: Wajib Full Absolute URL + Ukuran 1200x630 (Rasio 1.91:1) -->
-  <meta property="og:image" id="dynOgImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
-  <meta property="og:image:secure_url" id="dynOgImageSecure" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
+  <meta property="og:image" id="dynOgImage" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image:secure_url" id="dynOgImageSecure" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Wedding Invitation Cover Photo">
 
   <!-- Fallback Link Thumbnail untuk Chat Apps Klasik -->
-  <link rel="image_src" id="dynLinkImageSrc" href="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
+  <link rel="image_src" id="dynLinkImageSrc" href="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
 
   <!-- Twitter Card Preview -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" id="dynTwTitle" content="The Wedding of Tono & Tini">
   <meta name="twitter:description" id="dynTwDesc" content="Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.">
-  <meta name="twitter:image" id="dynTwImage" content="https://lh3.googleusercontent.com/d/1Dc9nMEqvenze-UtOEtOJ19qW9aDWuIwp=w1200">
+  <meta name="twitter:image" id="dynTwImage" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
 
   <!-- Mobile & PWA Capabilities -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -838,8 +838,8 @@
     .section-divider i { color: var(--gold-accent); font-size: 0.85rem; }
 
     /* ========================================================================
-       SISTEM ANIMASI SCROLL LAMBAT, MEWAH & BEBAS JANK UNTUK HP LOW-END
-       Menggunakan 2D Translate murni dengan kurva lambat tanpa rotasi 3D berat
+       SISTEM ANIMASI SCROLL ANGGUN & PERSISI TENGAH LAYAR
+       Transisi halus berbasis 2D Translate dengan kurva responsif saat tiba di tengah
        ======================================================================== */
     .reveal-on-scroll,
     .reveal-slide-left,
@@ -848,15 +848,16 @@
     .reveal-scale,
     .reveal-tilt-up {
       opacity: 0;
-      transition: opacity 1.9s cubic-bezier(0.22, 1, 0.36, 1), transform 1.9s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity 1.35s cubic-bezier(0.16, 1, 0.3, 1), transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
 
-    .reveal-on-scroll { transform: translate3d(0, 24px, 0); }
-    .reveal-slide-left { transform: translate3d(-22px, 0, 0); }
-    .reveal-slide-right { transform: translate3d(22px, 0, 0); }
-    .reveal-pop-shimmer { transform: scale(0.95) translate3d(0, 10px, 0); }
-    .reveal-scale { transform: scale(0.95) translate3d(0, 12px, 0); }
-    .reveal-tilt-up { transform: translate3d(0, 20px, 0); }
+    .reveal-on-scroll { transform: translate3d(0, 32px, 0); }
+    .reveal-slide-left { transform: translate3d(-28px, 0, 0); }
+    .reveal-slide-right { transform: translate3d(28px, 0, 0); }
+    .reveal-pop-shimmer { transform: scale(0.93) translate3d(0, 14px, 0); }
+    .reveal-scale { transform: scale(0.94) translate3d(0, 16px, 0); }
+    .reveal-tilt-up { transform: translate3d(0, 26px, 0); }
 
     .reveal-on-scroll.is-revealed,
     .reveal-slide-left.is-revealed,
@@ -2704,7 +2705,11 @@
 
     var scrollObserver = null;
 
-    /* OPTIMASI: Observer Native C++ Browser Ringan Tanpa Lag di HP Low-End */
+    /* ========================================================================
+       OBSERVER SCROLL PERSISI TENGAH LAYAR
+       Menggunakan rootMargin bawah negatif (-36%) sehingga elemen hanya muncul
+       tepat saat menyentuh paruh tengah layar tampilan HP / desktop.
+       ======================================================================== */
     function initLuxuryScrollObserver() {
       var animElements = document.querySelectorAll('.reveal-on-scroll, .reveal-slide-left, .reveal-slide-right, .reveal-pop-shimmer, .reveal-scale, .reveal-tilt-up');
 
@@ -2713,8 +2718,9 @@
 
         var observerOptions = {
           root: null,
-          rootMargin: '0px 0px -20px 0px',
-          threshold: 0.05
+          // rootMargin bawah negatif (-36%) memastikan deteksi aktif hanya di paruh tengah layar
+          rootMargin: '0px 0px -36% 0px',
+          threshold: 0.08
         };
 
         scrollObserver = new IntersectionObserver(function(entries, observer) {
