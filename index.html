@@ -101,7 +101,9 @@
       --radius-md: 14px;
       --radius-lg: 24px;
       --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+      /* Easing Sinematik Lambat & Anggun Khusus Animasi Scroll */
+      --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-gentle: cubic-bezier(0.25, 1, 0.35, 1);
     }
 
     * {
@@ -653,7 +655,7 @@
       background-color: var(--navy-deep);
       transform: scale(0.98);
       opacity: 0;
-      transition: transform 2.0s var(--ease-luxury) 0.2s, opacity 1.9s var(--ease-luxury) 0.2s;
+      transition: transform 2.2s var(--ease-luxury) 0.2s, opacity 2.1s var(--ease-luxury) 0.2s;
     }
 
     .invitation-revealed .unified-hero-frame {
@@ -708,7 +710,7 @@
       align-items: center;
       opacity: 0;
       transform: translate3d(0, -18px, 0);
-      transition: opacity 1.8s ease 0.4s, transform 1.8s var(--ease-luxury) 0.4s;
+      transition: opacity 1.9s ease 0.4s, transform 1.9s var(--ease-luxury) 0.4s;
       pointer-events: none;
     }
 
@@ -759,7 +761,7 @@
       align-items: center;
       opacity: 0;
       transform: translate3d(0, 18px, 0);
-      transition: opacity 1.8s ease 0.6s, transform 1.8s var(--ease-luxury) 0.6s;
+      transition: opacity 1.9s ease 0.6s, transform 1.9s var(--ease-luxury) 0.6s;
       pointer-events: none;
     }
 
@@ -780,7 +782,7 @@
       margin-top: 18px;
       opacity: 0;
       transform: translate3d(0, 18px, 0);
-      transition: opacity 2.0s var(--ease-luxury) 0.5s, transform 2.0s var(--ease-luxury) 0.5s;
+      transition: opacity 2.1s var(--ease-luxury) 0.5s, transform 2.1s var(--ease-luxury) 0.5s;
     }
 
     .invitation-revealed .countdown-grid {
@@ -839,8 +841,10 @@
     .section-divider i { color: var(--gold-accent); font-size: 0.85rem; }
 
     /* ========================================================================
-       SISTEM ANIMASI SCROLL ANGGUN & PERSISI TENGAH LAYAR (SMOOTH-EASING)
-       Transisi Easing cubic-bezier(0.16, 1, 0.3, 1) + Hardware Acceleration Layer
+       SISTEM ANIMASI SCROLL ANGGUN & PERSISI TENGAH LAYAR (SLOW & MAJESTIC)
+       - Durasi 1.75s untuk efek mengapung lambat, tenang, dan agung
+       - Kurva Deselerasi: cubic-bezier(0.22, 1, 0.36, 1)
+       - 100% GPU Hardware Accelerated (Enteng & Anti-Lag di HP Kentang)
        ======================================================================== */
     .reveal-on-scroll,
     .reveal-slide-left,
@@ -849,7 +853,7 @@
     .reveal-scale,
     .reveal-tilt-up {
       opacity: 0;
-      transition: opacity 1.35s var(--ease-luxury), transform 1.35s var(--ease-luxury);
+      transition: opacity 1.75s var(--ease-luxury), transform 1.75s var(--ease-luxury);
       will-change: opacity, transform;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
@@ -874,18 +878,18 @@
     }
 
     /* ========================================================================
-       STAGGERED DELAY (CASCADING ENTRANCE ORCHESTRATION)
-       Elemen yang berjejer meluncur masuk secara berurutan dan teratur
+       STAGGERED DELAY (CASCADING ENTRANCE ORCHESTRATION - TEMPO LEMBUT)
+       Elemen yang berjejer meluncur masuk berurutan dengan jeda proporsional
        ======================================================================== */
-    .delay-75  { transition-delay: 0.075s !important; }
-    .delay-100 { transition-delay: 0.10s !important; }
-    .delay-120 { transition-delay: 0.12s !important; }
-    .delay-150 { transition-delay: 0.15s !important; }
-    .delay-200 { transition-delay: 0.20s !important; }
-    .delay-250 { transition-delay: 0.25s !important; }
-    .delay-300 { transition-delay: 0.30s !important; }
-    .delay-360 { transition-delay: 0.36s !important; }
-    .delay-450 { transition-delay: 0.45s !important; }
+    .delay-75  { transition-delay: 0.09s !important; }
+    .delay-100 { transition-delay: 0.12s !important; }
+    .delay-120 { transition-delay: 0.15s !important; }
+    .delay-150 { transition-delay: 0.20s !important; }
+    .delay-200 { transition-delay: 0.26s !important; }
+    .delay-250 { transition-delay: 0.32s !important; }
+    .delay-300 { transition-delay: 0.40s !important; }
+    .delay-360 { transition-delay: 0.48s !important; }
+    .delay-450 { transition-delay: 0.58s !important; }
 
     .rsvp-box,
     .footer-quote,
@@ -1919,7 +1923,7 @@
           </div>
         </div>
 
-        <!-- Stagger 2: Pembatas Simbol Ampersand (Delay 150ms) -->
+        <!-- Stagger 2: Pembatas Simbol Ampersand (Delay 200ms) -->
         <div class="couple-center-divider reveal-pop-shimmer delay-150">
           <svg class="center-decor-wing" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 15H35C24 15 15 8 5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -1938,7 +1942,7 @@
           </svg>
         </div>
 
-        <!-- Stagger 3: Profil Mempelai Wanita (Delay 300ms) -->
+        <!-- Stagger 3: Profil Mempelai Wanita (Delay 400ms) -->
         <div class="couple-person-box reveal-slide-right delay-300">
           <div class="photo-flourish-container">
             <svg class="botanical-side-decor decor-left" viewBox="0 0 80 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2037,7 +2041,7 @@
         </div>
       </div>
 
-      <!-- Stagger 2: Kartu Resepsi (Delay 150ms) -->
+      <!-- Stagger 2: Kartu Resepsi (Delay 200ms) -->
       <div class="event-card reveal-tilt-up delay-150">
         <span class="event-badge"><i class="fa-solid fa-champagne-glasses"></i> Resepsi Pernikahan</span>
         <h4 class="font-serif" id="tanggalResepsi" style="font-size: 1.35rem; color: var(--navy-primary); font-weight: 700;">-</h4>
@@ -2055,7 +2059,7 @@
         </div>
       </div>
 
-      <!-- Stagger 3: Tombol Rute Maps (Delay 300ms) -->
+      <!-- Stagger 3: Tombol Rute Maps (Delay 400ms) -->
       <div class="reveal-on-scroll delay-300" style="text-align: center; margin-top: 6px;">
         <a id="btnMaps" href="#" target="_blank" class="btn-primary" style="text-decoration: none;">
           <i class="fa-solid fa-map-location-dot"></i> Buka Rute Google Maps
@@ -2082,7 +2086,7 @@
         </button>
       </div>
 
-      <!-- Stagger 2: Bank 2 (Delay 150ms) -->
+      <!-- Stagger 2: Bank 2 (Delay 200ms) -->
       <div class="gift-card reveal-scale delay-150" id="cardBank2">
         <div class="bank-header">
           <span class="bank-name" id="bank2Nama">-</span>
@@ -2732,9 +2736,9 @@
     var scrollObserver = null;
 
     /* ========================================================================
-       OBSERVER SCROLL PERSISI TENGAH LAYAR
-       Menggunakan rootMargin bawah negatif (-36%) sehingga elemen hanya muncul
-       tepat saat menyentuh paruh tengah layar tampilan HP / desktop.
+       OBSERVER SCROLL PERSISI TENGAH LAYAR (ANGGUN & SANGAT RINGAN DI HP KENTANG)
+       - rootMargin bawah negatif (-36%) memaksa deteksi tepat di paruh tengah layar
+       - threshold 0.08 memastikan elemen mulai bergerak begitu garis tengah disentuh
        ======================================================================== */
     function initLuxuryScrollObserver() {
       var animElements = document.querySelectorAll('.reveal-on-scroll, .reveal-slide-left, .reveal-slide-right, .reveal-pop-shimmer, .reveal-scale, .reveal-tilt-up');
@@ -2832,7 +2836,7 @@
       }
     });
 
-    /* Render Story Timeline dengan Cascading Staggered Delay (120ms per item) */
+    /* Render Story Timeline dengan Cascading Staggered Delay Halus (180ms per item) */
     function renderStoryTimeline(stories) {
       var container = document.getElementById('storyTimelineContainer');
       var section = document.getElementById('sectionStory');
@@ -2850,7 +2854,7 @@
         var st = stories[i];
         var chapNum = (i + 1 < 10) ? ('0' + (i + 1)) : String(i + 1);
         var gradId = 'dynStoryGrad_' + i;
-        var itemDelay = (i * 0.12).toFixed(2);
+        var itemDelay = (i * 0.18).toFixed(2);
 
         var ornamentSvg = '<svg class="story-card-ornament" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">' +
           '<defs>' +
