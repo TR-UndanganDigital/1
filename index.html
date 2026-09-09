@@ -12,7 +12,7 @@
     /**
      * 1. URL Web App Google Apps Script hasil Deploy backend (berakhiran /exec)
      */
-    var DEFAULT_GAS_API_URL = "https://script.google.com/macros/s/AKfycbz_REPLACE_WITH_YOUR_EXEC_ID/exec";
+    var DEFAULT_GAS_API_URL = "https://script.google.com/macros/s/AKfycbzhKglcP_4T_RMn5zqhb8RAv-bJCAOs6HnQmUgIefiS0c_yDILWdAQu8qGRt4MkmmQ7/exec";
 
     /**
      * 2. Direct URL Foto Cover untuk Thumbnail WhatsApp di GitHub Pages
@@ -839,8 +839,8 @@
     .section-divider i { color: var(--gold-accent); font-size: 0.85rem; }
 
     /* ========================================================================
-       SISTEM ANIMASI SCROLL ANGGUN & PERSISI TENGAH LAYAR
-       Transisi Smooth-Easing cubic-bezier(0.16, 1, 0.3, 1) + Hardware Acceleration
+       SISTEM ANIMASI SCROLL ANGGUN & PERSISI TENGAH LAYAR (SMOOTH-EASING)
+       Transisi Easing cubic-bezier(0.16, 1, 0.3, 1) + Hardware Acceleration Layer
        ======================================================================== */
     .reveal-on-scroll,
     .reveal-slide-left,
@@ -872,6 +872,20 @@
       opacity: 1 !important;
       transform: translate3d(0, 0, 0) scale(1) !important;
     }
+
+    /* ========================================================================
+       STAGGERED DELAY (CASCADING ENTRANCE ORCHESTRATION)
+       Elemen yang berjejer meluncur masuk secara berurutan dan teratur
+       ======================================================================== */
+    .delay-75  { transition-delay: 0.075s !important; }
+    .delay-100 { transition-delay: 0.10s !important; }
+    .delay-120 { transition-delay: 0.12s !important; }
+    .delay-150 { transition-delay: 0.15s !important; }
+    .delay-200 { transition-delay: 0.20s !important; }
+    .delay-250 { transition-delay: 0.25s !important; }
+    .delay-300 { transition-delay: 0.30s !important; }
+    .delay-360 { transition-delay: 0.36s !important; }
+    .delay-450 { transition-delay: 0.45s !important; }
 
     .rsvp-box,
     .footer-quote,
@@ -1786,7 +1800,7 @@
         <i class="fa-solid fa-feather-pointed"></i>
       </div>
 
-      <div class="hero-quote-box reveal-on-scroll">
+      <div class="hero-quote-box reveal-on-scroll delay-150">
         <p class="font-serif" id="quoteText" style="font-style: italic; font-size: 1.05rem; color: var(--text-main); line-height: 1.7;">
           "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri..."
         </p>
@@ -1846,6 +1860,7 @@
           <p id="teksPembukaMempelai">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud melangsungkan pernikahan:</p>
         </div>
 
+        <!-- Stagger 1: Profil Mempelai Pria (Delay 0s) -->
         <div class="couple-person-box reveal-slide-left">
           <div class="photo-flourish-container">
             <svg class="botanical-side-decor decor-left" viewBox="0 0 80 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1904,7 +1919,8 @@
           </div>
         </div>
 
-        <div class="couple-center-divider reveal-pop-shimmer">
+        <!-- Stagger 2: Pembatas Simbol Ampersand (Delay 150ms) -->
+        <div class="couple-center-divider reveal-pop-shimmer delay-150">
           <svg class="center-decor-wing" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 15H35C24 15 15 8 5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             <path d="M35 15C25 22 18 26 2 28" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3"/>
@@ -1922,7 +1938,8 @@
           </svg>
         </div>
 
-        <div class="couple-person-box reveal-slide-right">
+        <!-- Stagger 3: Profil Mempelai Wanita (Delay 300ms) -->
+        <div class="couple-person-box reveal-slide-right delay-300">
           <div class="photo-flourish-container">
             <svg class="botanical-side-decor decor-left" viewBox="0 0 80 160" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M72 145C60 115 35 90 28 55C24 35 30 18 38 10" stroke="url(#goldGradWanitaL)" stroke-width="1.8" stroke-linecap="round"/>
@@ -2002,6 +2019,7 @@
         <p style="font-size: 0.85rem; color: var(--text-muted);">Waktu dan lokasi pelaksanaan akad serta resepsi</p>
       </div>
 
+      <!-- Stagger 1: Kartu Akad Nikah (Delay 0s) -->
       <div class="event-card reveal-tilt-up">
         <span class="event-badge"><i class="fa-solid fa-ring"></i> Akad Nikah</span>
         <h4 class="font-serif" id="tanggalAkad" style="font-size: 1.35rem; color: var(--navy-primary); font-weight: 700;">-</h4>
@@ -2019,7 +2037,8 @@
         </div>
       </div>
 
-      <div class="event-card reveal-tilt-up">
+      <!-- Stagger 2: Kartu Resepsi (Delay 150ms) -->
+      <div class="event-card reveal-tilt-up delay-150">
         <span class="event-badge"><i class="fa-solid fa-champagne-glasses"></i> Resepsi Pernikahan</span>
         <h4 class="font-serif" id="tanggalResepsi" style="font-size: 1.35rem; color: var(--navy-primary); font-weight: 700;">-</h4>
         <div class="event-time-row">
@@ -2036,7 +2055,8 @@
         </div>
       </div>
 
-      <div class="reveal-on-scroll" style="text-align: center; margin-top: 6px;">
+      <!-- Stagger 3: Tombol Rute Maps (Delay 300ms) -->
+      <div class="reveal-on-scroll delay-300" style="text-align: center; margin-top: 6px;">
         <a id="btnMaps" href="#" target="_blank" class="btn-primary" style="text-decoration: none;">
           <i class="fa-solid fa-map-location-dot"></i> Buka Rute Google Maps
         </a>
@@ -2049,6 +2069,7 @@
         <p style="font-size: 0.85rem; color: var(--text-muted);">Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberikan tanda kasih secara cashless:</p>
       </div>
 
+      <!-- Stagger 1: Bank 1 (Delay 0s) -->
       <div class="gift-card reveal-scale" id="cardBank1">
         <div class="bank-header">
           <span class="bank-name" id="bank1Nama">-</span>
@@ -2061,7 +2082,8 @@
         </button>
       </div>
 
-      <div class="gift-card reveal-scale" id="cardBank2">
+      <!-- Stagger 2: Bank 2 (Delay 150ms) -->
+      <div class="gift-card reveal-scale delay-150" id="cardBank2">
         <div class="bank-header">
           <span class="bank-name" id="bank2Nama">-</span>
           <i class="fa-solid fa-building-columns" style="color: var(--gold-dark);"></i>
@@ -2722,7 +2744,6 @@
 
         var observerOptions = {
           root: null,
-          // rootMargin bawah negatif (-36%) memastikan deteksi aktif hanya di paruh tengah layar
           rootMargin: '0px 0px -36% 0px',
           threshold: 0.08
         };
@@ -2811,6 +2832,7 @@
       }
     });
 
+    /* Render Story Timeline dengan Cascading Staggered Delay (120ms per item) */
     function renderStoryTimeline(stories) {
       var container = document.getElementById('storyTimelineContainer');
       var section = document.getElementById('sectionStory');
@@ -2828,6 +2850,7 @@
         var st = stories[i];
         var chapNum = (i + 1 < 10) ? ('0' + (i + 1)) : String(i + 1);
         var gradId = 'dynStoryGrad_' + i;
+        var itemDelay = (i * 0.12).toFixed(2);
 
         var ornamentSvg = '<svg class="story-card-ornament" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">' +
           '<defs>' +
@@ -2850,7 +2873,7 @@
           '<path d="M90 2L52 40" stroke="url(#' + gradId + ')" stroke-width="1.2" stroke-dasharray="2 3"/>' +
         '</svg>';
 
-        html += '<div class="story-item reveal-slide-right">' +
+        html += '<div class="story-item reveal-slide-right" style="transition-delay: ' + itemDelay + 's;">' +
           '<div class="story-marker">' +
             '<i class="fa-solid fa-heart"></i>' +
             '<div class="marker-pulse"></div>' +
