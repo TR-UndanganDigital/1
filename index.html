@@ -100,7 +100,8 @@
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 24px;
-      --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -193,7 +194,7 @@
       text-align: center;
       padding: 24px;
       box-sizing: border-box;
-      transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.85s ease;
+      transition: opacity 0.85s var(--ease-luxury), visibility 0.85s ease;
     }
 
     .app-loader-screen.fade-out {
@@ -208,7 +209,7 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      animation: loaderContentFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation: loaderContentFadeIn 0.9s var(--ease-luxury) both;
     }
 
     @keyframes loaderContentFadeIn {
@@ -401,13 +402,13 @@
       gap: 14px;
     }
 
-    .anim-cover-title { animation: coverFadeDown 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
-    .anim-cover-couple { animation: coverScaleIn 1.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both; }
-    .anim-cover-date { animation: coverFadeDown 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both; }
-    .anim-cover-guest { animation: coverFadeUp 1.7s cubic-bezier(0.16, 1, 0.3, 1) 2.0s both; }
+    .anim-cover-title { animation: coverFadeDown 1.5s var(--ease-luxury) 0.4s both; }
+    .anim-cover-couple { animation: coverScaleIn 1.7s var(--ease-luxury) 0.9s both; }
+    .anim-cover-date { animation: coverFadeDown 1.5s var(--ease-luxury) 1.5s both; }
+    .anim-cover-guest { animation: coverFadeUp 1.7s var(--ease-luxury) 2.0s both; }
     
     .anim-cover-btn {
-      animation: coverFadeUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) 2.6s both;
+      animation: coverFadeUp 1.6s var(--ease-luxury) 2.6s both;
       background: transparent !important;
       box-shadow: none !important;
       border: none !important;
@@ -652,7 +653,7 @@
       background-color: var(--navy-deep);
       transform: scale(0.98);
       opacity: 0;
-      transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s, opacity 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+      transition: transform 2.0s var(--ease-luxury) 0.2s, opacity 1.9s var(--ease-luxury) 0.2s;
     }
 
     .invitation-revealed .unified-hero-frame {
@@ -707,7 +708,7 @@
       align-items: center;
       opacity: 0;
       transform: translate3d(0, -18px, 0);
-      transition: opacity 2.0s ease 0.4s, transform 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+      transition: opacity 1.8s ease 0.4s, transform 1.8s var(--ease-luxury) 0.4s;
       pointer-events: none;
     }
 
@@ -758,7 +759,7 @@
       align-items: center;
       opacity: 0;
       transform: translate3d(0, 18px, 0);
-      transition: opacity 2.0s ease 0.6s, transform 2.0s cubic-bezier(0.22, 1, 0.36, 1) 0.6s;
+      transition: opacity 1.8s ease 0.6s, transform 1.8s var(--ease-luxury) 0.6s;
       pointer-events: none;
     }
 
@@ -779,7 +780,7 @@
       margin-top: 18px;
       opacity: 0;
       transform: translate3d(0, 18px, 0);
-      transition: opacity 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s, transform 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
+      transition: opacity 2.0s var(--ease-luxury) 0.5s, transform 2.0s var(--ease-luxury) 0.5s;
     }
 
     .invitation-revealed .countdown-grid {
@@ -839,7 +840,7 @@
 
     /* ========================================================================
        SISTEM ANIMASI SCROLL ANGGUN & PERSISI TENGAH LAYAR
-       Transisi halus berbasis 2D Translate dengan kurva responsif saat tiba di tengah
+       Transisi Smooth-Easing cubic-bezier(0.16, 1, 0.3, 1) + Hardware Acceleration
        ======================================================================== */
     .reveal-on-scroll,
     .reveal-slide-left,
@@ -848,16 +849,19 @@
     .reveal-scale,
     .reveal-tilt-up {
       opacity: 0;
-      transition: opacity 1.35s cubic-bezier(0.16, 1, 0.3, 1), transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 1.35s var(--ease-luxury), transform 1.35s var(--ease-luxury);
       will-change: opacity, transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform-style: preserve-3d;
     }
 
-    .reveal-on-scroll { transform: translate3d(0, 32px, 0); }
-    .reveal-slide-left { transform: translate3d(-28px, 0, 0); }
-    .reveal-slide-right { transform: translate3d(28px, 0, 0); }
-    .reveal-pop-shimmer { transform: scale(0.93) translate3d(0, 14px, 0); }
-    .reveal-scale { transform: scale(0.94) translate3d(0, 16px, 0); }
-    .reveal-tilt-up { transform: translate3d(0, 26px, 0); }
+    .reveal-on-scroll { transform: translate3d(0, 36px, 0); }
+    .reveal-slide-left { transform: translate3d(-32px, 0, 0); }
+    .reveal-slide-right { transform: translate3d(32px, 0, 0); }
+    .reveal-pop-shimmer { transform: scale(0.92) translate3d(0, 16px, 0); }
+    .reveal-scale { transform: scale(0.92) translate3d(0, 18px, 0); }
+    .reveal-tilt-up { transform: translate3d(0, 28px, 0); }
 
     .reveal-on-scroll.is-revealed,
     .reveal-slide-left.is-revealed,
@@ -1419,7 +1423,7 @@
       box-shadow: var(--shadow-lg);
       z-index: 10000;
       opacity: 0;
-      transition: all 0.4s ease;
+      transition: all 0.4s var(--ease-luxury);
       display: flex;
       align-items: center;
       gap: 10px;
